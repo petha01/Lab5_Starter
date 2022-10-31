@@ -23,8 +23,10 @@ function readText(speech, voices) {
       }
     }
 
+    let smiley = document.querySelector('img');
+
+    smiley.src = "assets/images/smiling-open.png";
     speech.speak(utterance);
-    // smileyFace(speech);
   })
 }
 
@@ -38,17 +40,4 @@ function initVoices(voices) {
     option.setAttribute('data-name', voices[i].name);
     ddl.appendChild(option);
   }
-}
-
-function smileyFace(speech) {
-  let smiley = document.querySelector('img');
-  console.log("speech.speaking is: ")
-  while (speech.speaking) {
-    if (smiley.src !== "assets/images/smiling-open.png") {
-      smiley.src = "assets/images/smiling-open.png";
-      console.log("Mouth open: " + speech.speaking)
-    }
-  }
-  console.log('Mouth closed')
-  smiley.src = "assets/images/smiling.png";
 }
